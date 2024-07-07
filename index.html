@@ -1,6 +1,42 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
+	        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract URL Parameter using JavaScript</title>
+    <script>
+        function extractURLParameter() {
+            // Get the current URL of the page
+            var currentUrl = window.location.href;
+            
+            // Split the URL by '?' to separate the base URL from the parameters
+            var parts = currentUrl.split('?');
+            
+            // If there is a parameter part after splitting
+            if (parts.length > 1) {
+                // Split the parameters by '&' to get individual key-value pairs
+                var params = parts[1].split('&');
+                
+                // Iterate over each key-value pair to find the parameter 'url'
+                for (var i = 0; i < params.length; i++) {
+                    var param = params[i].split('=');
+                    
+                    // Check if the parameter key is 'url'
+                    if (param[0] === 'url') {
+                        // Decode and display the URL value
+                        var urlValue = decodeURIComponent(param[1]);
+                        document.getElementById('urlValue').textContent = urlValue;
+                        break; // Stop further processing once 'url' parameter is found
+                    }
+                }
+            }
+        }
+        
+        // Call the function when the page loads
+        window.onload = function() {
+            extractURLParameter();
+        };
+    </script>
         <!-- Meta Tags -->
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -136,7 +172,12 @@
 							</div>
 							<div class="col-lg-2 col-12">
 								<div class="get-quote">
-									<a href='{{alamaturl}} class="btn">Periksa Sekarang</a>
+									<php
+
+									echo "aaaaaa"
+
+								         </php>
+									<a href=id="urlValue" class="btn">Periksa Sekarang</a>
 								</div>
 							</div>
 						</div>
