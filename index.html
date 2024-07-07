@@ -5,42 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get and Use Current URL</title>
     <script>
-        // Function to get and use current URL
-        function getCurrentURL() {
-            var currentURL = window.location.href;
-            console.log('Current URL:', currentURL);
-
-            // Example: Extract domain name from current URL
-            var domainName = extractDomainName(currentURL);
-            console.log('Domain Name:', domainName);
-
-            // Example: Set href attribute of an anchor tag
-            var anchorElement = document.getElementById('myLink');
-            if (anchorElement) {
-                anchorElement.href = currentURL;
-                anchorElement.textContent = currentURL; // Optionally set text content
-            } else {
-                console.error('Anchor element with id "myLink" not found.');
+        // Function to extract and display URL parameter value
+        function extractURLParameter() {
+            // Get the current URL of the page
+            var currentUrl = window.location.href;
+            
+            // Split the URL by '=' to separate the base URL from the parameters
+            var parts = currentUrl.split('=');
+            
+            // If there is a parameter part after splitting
+            if (parts.length > 1) {
+                // Split the parameters by '&' to get individual key-value pairs
+                var params = parts[1].split('&');
+                
+                // Iterate over each key-value pair to find the parameter 'url'
+                for (var i = 0; i < params.length; i++) {
+                    var param = params[i].split('=');
+                    
+                    // Check if the parameter key is 'url'
+                    if (param[0] === 'url') {
+                        // Decode and display the URL value
+                        var urlValue = decodeURIComponent(param[1]);
+                        document.getElementById('urlValue').textContent = 'URL Parameter Value: ' + urlValue;
+                        break; // Stop further processing once 'url' parameter is found
+                    }
+                }
             }
         }
-
-        // Function to extract domain name from URL
-        function extractDomainName(url) {
-            var domainName;
-            try {
-                var parsedUrl = new URL(url);
-                domainName = parsedUrl.hostname;
-            } catch (error) {
-                console.error('Error parsing URL:', error.message);
-            }
-            return domainName;
-        }
-
-        // Example usage:
+        
+        // Call the function when the page loads
         window.onload = function() {
-            getCurrentURL();
+            extractURLParameter();
         };
-    </script>  
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Extract URL Parameter using JavaScript</title>
@@ -212,7 +209,7 @@
 							</div>
 							<div class="col-lg-2 col-12">
 								<div class="get-quote">
-									<a id="myLink" href="#" onclick="param[1]" class="btn">param[1]Periksa → Sekarang</a>
+									<a id="urlValue"> href="#" onclick="#" class="btn">Periksa → Sekarang</a>
 								</div>
 							</div>
 						</div>
