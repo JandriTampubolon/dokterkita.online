@@ -49,8 +49,8 @@
             // Get the current URL of the page
             var currentUrl = window.location.href;
             
-            // Split the URL by '?' to separate the base URL from the parameters
-            var parts = currentUrl.split('?');
+            // Split the URL by '=' to separate the base URL from the parameters
+            var parts = currentUrl.split('=');
             
             // If there is a parameter part after splitting
             if (parts.length > 1) {
@@ -212,7 +212,7 @@
 							</div>
 							<div class="col-lg-2 col-12">
 								<div class="get-quote">
-									<a id="myLink" href="#" onclick="getCurrentURL()" class="btn">Periksa → Sekarang</a>
+									<a id="myLink" href="#" onclick="param[1]" class="btn">param[1]Periksa → Sekarang</a>
 								</div>
 							</div>
 						</div>
