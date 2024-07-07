@@ -1,7 +1,25 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
-	        <meta charset="UTF-8">
+	    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting href Attribute of Anchor Tag</title>
+    <script>
+        // Example: URL stored in JavaScript variable
+        var alamaturl = "https://41b7-35-237-18-112.ngrok-free.app";
+
+        // Function to set href attribute of anchor tag
+        function setHref() {
+            var anchorElement = document.getElementById('myLink');
+            if (anchorElement) {
+                anchorElement.href = alamaturl;
+                anchorElement.textContent = alamaturl; // Optionally set text content
+            } else {
+                console.error('Anchor element with id "myLink" not found.');
+            }
+        }
+    </script>   
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Extract URL Parameter using JavaScript</title>
     <script>
@@ -172,7 +190,7 @@
 							</div>
 							<div class="col-lg-2 col-12">
 								<div class="get-quote">
-									<a href="#" class="btn">Periksa Sekarang</a>
+									<a id="myLink" href="#" onclick="setHref()" class="btn">Periksa Sekarang</a>
 								</div>
 							</div>
 						</div>
