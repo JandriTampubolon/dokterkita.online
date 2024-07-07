@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get and Use Current URL</title>
     <script>
-        // Function to extract and display URL parameter value
+        // Function to extract and set href attribute of anchor tag
         function extractURLParameter() {
             // Get the current URL of the page
             var currentUrl = window.location.href;
@@ -18,17 +18,28 @@
                 // Split the parameters by '&' to get individual key-value pairs
                 var params = parts[1].split('&');
                 
+                // Initialize variable for URL parameter value
+                var urlValue = '';
+                
                 // Iterate over each key-value pair to find the parameter 'url'
                 for (var i = 0; i < params.length; i++) {
                     var param = params[i].split('=');
                     
                     // Check if the parameter key is 'url'
                     if (param[0] === 'url') {
-                        // Decode and display the URL value
-                        var urlValue = decodeURIComponent(param[1]);
-                        document.getElementById('urlValue').textContent = 'URL Parameter Value: ' + urlValue;
+                        // Decode and store the URL value
+                        urlValue = decodeURIComponent(param[1]);
                         break; // Stop further processing once 'url' parameter is found
                     }
+                }
+                
+                // Set href attribute of anchor tag with id 'myLink'
+                var anchorElement = document.getElementById('myLink');
+                if (anchorElement) {
+                    anchorElement.href = urlValue;
+                    anchorElement.textContent = 'Go to: ' + urlValue; // Optionally set text content
+                } else {
+                    console.error('Anchor element with id "myLink" not found.');
                 }
             }
         }
@@ -209,7 +220,8 @@
 							</div>
 							<div class="col-lg-2 col-12">
 								<div class="get-quote">
-									<a id="urlValue"> href="#" onclick="#" class="btn">Periksa → Sekarang</a>
+									 <a id="myLink" href="#" class="btn">Link</a>
+									
 								</div>
 							</div>
 						</div>
