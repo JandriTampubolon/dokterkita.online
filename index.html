@@ -1,24 +1,46 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
-	    <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setting href Attribute of Anchor Tag</title>
+    <title>Get and Use Current URL</title>
     <script>
-        // Example: URL stored in JavaScript variable
-        var alamaturl = "https://41b7-35-237-18-112.ngrok-free.app";
+        // Function to get and use current URL
+        function getCurrentURL() {
+            var currentURL = window.location.href;
+            console.log('Current URL:', currentURL);
 
-        // Function to set href attribute of anchor tag
-        function setHref() {
+            // Example: Extract domain name from current URL
+            var domainName = extractDomainName(currentURL);
+            console.log('Domain Name:', domainName);
+
+            // Example: Set href attribute of an anchor tag
             var anchorElement = document.getElementById('myLink');
             if (anchorElement) {
-                anchorElement.href = alamaturl;
-                anchorElement.textContent = alamaturl; // Optionally set text content
+                anchorElement.href = currentURL;
+                anchorElement.textContent = currentURL; // Optionally set text content
             } else {
                 console.error('Anchor element with id "myLink" not found.');
             }
         }
-    </script>   
+
+        // Function to extract domain name from URL
+        function extractDomainName(url) {
+            var domainName;
+            try {
+                var parsedUrl = new URL(url);
+                domainName = parsedUrl.hostname;
+            } catch (error) {
+                console.error('Error parsing URL:', error.message);
+            }
+            return domainName;
+        }
+
+        // Example usage:
+        window.onload = function() {
+            getCurrentURL();
+        };
+    </script>  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Extract URL Parameter using JavaScript</title>
