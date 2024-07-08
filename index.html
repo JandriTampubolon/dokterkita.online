@@ -4,14 +4,26 @@
     <script>
         function getCurrentUrl() {
             // Dapatkan URL halaman saat ini
-	    var inputString = window.location.href; 
-	    var parts = inputString.split('=');
-           // Tampilkan bagian-bagian hasil pemisahan di elemen dengan id "result"
-	document.getElementById('urlDisplay').textContent =parts[1]
-        document.getElementById('result').innerHTML = parts[1]
-        }
+            //var inputString = window.location.href;
+		var inputString =window.location.href; //"dfhdjhflhsdj/dkf=sdkgf:lkffl;fkg"
+	    var parts = inputString.split(':');
+
+            // Setel atribut href dari elemen <a> dengan nilai variabel
+
+           document.getElementById('urlDisplay').textContent = "Bagian 1: " + parts[0] + "<br>Bagian 2: " + parts[2];   
+
+
+            var myUrl = "https:" + parts[2]; 
+            
+            // Dapatkan elemen <a> dengan id "myLink"
+            var linkElement = document.getElementById("myLink");
+            
+            // Setel atribut href dari elemen <a> dengan nilai variabel
+            linkElement.href = myUrl; 
+ }
+
+
     </script>
-	</script>
         <!-- Meta Tags -->
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -147,7 +159,7 @@
 							<div class="col-lg-2 col-12">
 								<div class="get-quote">
 									<p id="urlDisplay"></p>
-									  <a href="" onclick="getCurrentUrl()" class="btn">Periksa</a>
+									<a id="myLink" href="" class="btn">→</a> 
 									
 								</div>
 							</div>
