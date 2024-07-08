@@ -1,53 +1,16 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get and Use Current URL</title>
-    <script>
-        // Function to extract the 'alamaturl' parameter value
-        function extractAlamatURL() {
-            // Get the current URL of the page
+	<script>
+        function getCurrentUrl() {
+            // Dapatkan URL halaman saat ini
             var currentUrl = window.location.href;
-
-            // Split the URL by '?' to separate the base URL from the parameters
-            var parts = currentUrl.split('?');
-
-            // If there is a parameter part after splitting
-            if (parts.length > 1) {
-                // Split the parameters by '&' to get individual key-value pairs
-                var params = parts[1].split('&');
-
-                // Initialize variable for 'alamaturl' parameter value
-                var alamaturlValue = '';
-
-                // Iterate over each key-value pair to find the parameter 'alamaturl'
-                for (var i = 0; i < params.length; i++) {
-                    var param = params[i].split('=');
-
-                    // Check if the parameter key is 'alamaturl'
-                    if (param[0] === 'alamaturl') {
-                        // Decode and store the 'alamaturl' value
-                        alamaturlValue = decodeURIComponent(param[1]);
-                        break; // Stop further processing once 'alamaturl' parameter is found
-                    }
-                }
-
-                // Set href attribute of anchor tag with id 'myLink' to the extracted 'alamaturl' value
-                var anchorElement = document.getElementById('myLink');
-                if (anchorElement) {
-                    anchorElement.href = alamaturlValue;
-                    anchorElement.textContent = 'Go to: ' + alamaturlValue; // Optionally set text content
-                } else {
-                    console.error('Anchor element with id "myLink" not found.');
-                }
-            }
+	    var inputString = currentUrl   
+	    var parts = inputString.split('=');
+           // Tampilkan bagian-bagian hasil pemisahan di elemen dengan id "result"
+	document.getElementById('urlDisplay').textContent =parts[0]
         }
-
-        // Call the function when the page loads
-        window.onload = function() {
-            extractAlamatURL();
-        };
+	</script>
         <!-- Meta Tags -->
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -55,7 +18,6 @@
 		<meta name="description" content="">
 		<meta name='copyright' content=''>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		
 		<!-- Title -->
         <title>Prediksi Gagal Jantung Kronis.</title>
 		
@@ -183,7 +145,7 @@
 							</div>
 							<div class="col-lg-2 col-12">
 								<div class="get-quote">
-									 <a id="myLink" href="#" class="btn">Link</a>
+									 <a href=<p id="urlDisplay"></p> class="btn">Periksa Sekarang</a>
 									
 								</div>
 							</div>
