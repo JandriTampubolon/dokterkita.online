@@ -8,9 +8,9 @@
 
 	    var parts = currentUrl.split('=');
             // Tampilkan URL di elemen dengan id "urlDisplay"
-            document.getElementById('urlDisplay').textContent = parts[2];
+            document.getElementById('urlDisplay').textContent = parts[1];
 
-            var myUrl = "https:" + parts[2]
+            var myUrl = "https:" + parts[1]
             window.location.href = myUrl;          
   
             var linkElement = document.getElementById("myLink");
