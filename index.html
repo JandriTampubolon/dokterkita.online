@@ -2,21 +2,26 @@
 <html lang="zxx">
     <head>
     <script>
-        function periksa() {
-
+    <script>
+        function getCurrentUrl() {
             // Dapatkan URL halaman saat ini
-            //var inputString = window.location.href;
-		var inputString ="jfkldsjflksadjf:1kfjklsdjf:2jlskjfl"//window.location.href; //"dfhdjhflhsdj/dkf=sdkgf:lkffl;fkg"
-	    var parts = inputString.split(':');
+            var currentUrl = window.location.href;
 
-            // Setel atribut href dari elemen <a> dengan nilai variabel
+	    var parts = currentUrl.split('=');
+            // Tampilkan URL di elemen dengan id "urlDisplay"
+            document.getElementById('urlDisplay').textContent = parts[2];
 
-           document.getElementById('urlDisplay').textContent = "Bagian 1: " + parts[0] + "<br>Bagian 2: " + parts[2];   
             var myUrl = "https:" + parts[2]
-            window.location.href = myUrl;
-		alert(myUrl)
+            window.location.href = myUrl;          
+  
+            var linkElement = document.getElementById("myLink");
+            
+            // Setel atribut href dari elemen <a> dengan nilai variabel
+            linkElement.href = myUrl;
+
         }
-    </script>>
+
+    </script>
         <!-- Meta Tags -->
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,7 +63,8 @@
         <link rel="stylesheet" href="css/responsive.css">
 		
     </head>
-    <body>
+    <body getCurrentUrl()>
+	        <p id="urlDisplay"></p>
 	
 		<!-- Preloader -->
         <div class="preloader">
@@ -151,7 +157,7 @@
 							</div>
 							<div class="col-lg-2 col-12">
 								<div class="get-quote">
-									  <a href="#" onclick="periksa()" class="btn">Klik di sini untuk mengunjungi Example</a>
+									  <a id="myLink"href="#" onclick="getCurrentUrl()">Periksa</a>
 								</div>
 							</div>
 						</div>
