@@ -4,8 +4,7 @@
     <script>
         function getCurrentUrl() {
             // Dapatkan URL halaman saat ini
-            var currentUrl = window.location.href;
-	    var inputString = currentUrl   
+	    var inputString = window.location.href; 
 	    var parts = inputString.split('=');
            // Tampilkan bagian-bagian hasil pemisahan di elemen dengan id "result"
 	document.getElementById('urlDisplay').textContent =parts[1]
