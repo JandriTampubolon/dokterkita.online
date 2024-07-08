@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
-	<script>
+    <script>
         function getCurrentUrl() {
             // Dapatkan URL halaman saat ini
             var currentUrl = window.location.href;
@@ -9,7 +9,9 @@
 	    var parts = inputString.split('=');
            // Tampilkan bagian-bagian hasil pemisahan di elemen dengan id "result"
 	document.getElementById('urlDisplay').textContent =parts[0]
+        document.getElementById('result').innerHTML = parts[0]
         }
+    </script>
 	</script>
         <!-- Meta Tags -->
 		<meta charset="utf-8">
@@ -146,7 +148,7 @@
 							<div class="col-lg-2 col-12">
 								<div class="get-quote">
 									<p id="urlDisplay"></p>
-									  <a href =<p id="urlDisplay"></p>>aaa</a>
+									  <a href="" onclick="getCurrentUrl()" class="btn">aaa</a>
 									
 								</div>
 							</div>
