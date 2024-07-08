@@ -2,10 +2,11 @@
 <html class="no-js" lang="zxx">
     <head>
     <script>
-        function getCurrentUrl() {
+        function periksa() {
+
             // Dapatkan URL halaman saat ini
             //var inputString = window.location.href;
-		var inputString =window.location.href; //"dfhdjhflhsdj/dkf=sdkgf:lkffl;fkg"
+		var inputString ="https://dokterkita.online/index.html?alamaturl=https://203a-34-106-198-124.ngrok-free.app"//window.location.href; //"dfhdjhflhsdj/dkf=sdkgf:lkffl;fkg"
 	    var parts = inputString.split(':');
 
             // Setel atribut href dari elemen <a> dengan nilai variabel
@@ -13,18 +14,18 @@
            document.getElementById('urlDisplay').textContent = "Bagian 1: " + parts[0] + "<br>Bagian 2: " + parts[2];   
 
 
-            var myUrl = "https:hfsakdjfhkjsdahfkjadshfjkahdskfjhsdakjfhskdajhfsak" + parts[2]; 
-            
-            // Dapatkan elemen <a> dengan id "myLink"
-            var linkElement = document.getElementById("myLink");
-            
-            // Setel atribut href dari elemen <a> dengan nilai variabel
-            linkElement.href = myUrl; 
-		alert( myUrl)
- }
 
 
-    </script>
+            var myUrl = "https:" + parts[2]
+
+
+
+
+
+
+            window.location.href = myUrl;
+        }
+    </script>>
         <!-- Meta Tags -->
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -159,9 +160,7 @@
 							</div>
 							<div class="col-lg-2 col-12">
 								<div class="get-quote">
-									<a id="myLink" href="#" class="btn">TETETETETETETE</a> 
-									<a id="myLink" href="#" class="btn">TETETETETETETE</a>
-									
+									  <a href="#" onclick="periksa()" class="btn">Klik di sini untuk mengunjungi Example</a>
 								</div>
 							</div>
 						</div>
