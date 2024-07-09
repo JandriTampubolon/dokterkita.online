@@ -2,8 +2,24 @@
 <html lang="zxx">
     <head>
     <script>
-            linkElement.href = "https://619b-35-194-84-176.ngrok-free.app";
+        function getCurrentUrl() {
+            // Dapatkan URL halaman saat ini
+            var currentUrl = window.location.href;
+
+	    var parts = currentUrl.split('=');
+            // Tampilkan URL di elemen dengan id "urlDisplay"
+            document.getElementById('urlDisplay').textContent = parts[1];
+
+            var myUrl = parts[1] + "/input"
+            window.location.href = myUrl;          
+  
+            var linkElement = document.getElementById("myLink");
+            
+            // Setel atribut href dari elemen <a> dengan nilai variabel
+            linkElement.href = myUrl;
             link.target = "_blank";
+        }
+
     </script>
         <!-- Meta Tags -->
 		<meta charset="utf-8">
@@ -116,7 +132,7 @@
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu">
-											<li class="active">Home
+											<li class="active"><a href="index.html">Home </a>
 
 											</li>
 
