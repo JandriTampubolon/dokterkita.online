@@ -155,7 +155,8 @@
 							<div class="col-lg-2 col-12">
 								<div class="get-quote">
 									    <h1></h1><p id="myLink"></p></h1>
-									   <a id="myLink" href="#" onclick="getCurrentUrl()" target="_blank" class="btn">Periksa Sekarang</a>
+									  
+									   <a href="#" id="showDivLink" class="btn">Click me to show div</a>
 								</div>
 							</div>
 						</div>
@@ -269,5 +270,107 @@
 		<script src="js/bootstrap.min.js"></script>
 		<!-- Main JS -->
 		<script src="js/main.js"></script>
+
+	    <div id="overlay"></div>
+    <div id="myDiv">
+        <div id="closeBtn">X</div><p>
+        <form id="numberForm" action="/submit" method="POST">
+            <table>
+                <tr>
+                    <td><label for="rbc">Sel Darah Merah Dalam Urine :</label></td>
+                    <td><input type="number" id="rbc" name="rbc" required></td>
+                </tr>
+                <tr>
+                    <td><label for="pc">Sel Nanah Dalam Urine :</label></td>
+                    <td><input type="number" id="pc" name="pc" required></td>
+                </tr>
+                <tr>
+                    <td><label for="pcc">Gumpalan Sel Nanah Dalam Urine :</label></td>
+                    <td><input type="number" id="pcc" name="pcc" required></td>
+                </tr>
+                <tr>
+                    <td><label for="bu">Urea Darah dalam mg/dL:</label></td>
+                    <td><input type="number" id="bu" name="bu" required></td>
+                </tr>
+                <tr>
+                    <td><label for="sc">Serum creatinine dalam mg/dL:</label></td>
+                    <td><input type="number" id="sc" name="sc" required></td>
+                </tr>
+                <tr>
+                    <td><label for="hemo">Hemoglobin dalam g/dL:</label></td>
+                    <td><input type="number" id="hemo" name="hemo" required></td>
+                </tr>
+                <tr>
+                    <td><label for="pcv">Volume Sel Padat:</label></td>
+                    <td><input type="number" id="pcv" name="pcv" required></td>
+                </tr>
+                <tr>
+                    <td><label for="htn">Hypertension (yes/no):</label></td>
+                    <td>
+                        <select id="htn" name="htn">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="dm">Diabetes mellitus (DM) (yes/no):</label></td>
+                    <td>
+                        <select id="dm" name="dm">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: right;">
+                        <input type="submit" value="Submit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <p><center>Untuk Mendapatkan Analisa Terbaik Pastikan Informasi <br>Yang Anda Berikan Adalah Yang S E B E N A R nya</center>
+    </div>
+
+    <script>
+        document.getElementById('showDivLink').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default link behavior
+            document.getElementById('overlay').style.display = 'block'; // Show the overlay
+            document.getElementById('myDiv').style.display = 'block'; // Show the div
+        });
+
+        document.getElementById('closeBtn').addEventListener('click', function() {
+            document.getElementById('myDiv').style.display = 'none'; // Hide the div
+            document.getElementById('overlay').style.display = 'none'; // Hide the overlay
+        });
+
+        // Close the div if clicking outside of it
+        window.addEventListener('click', function(event) {
+            if (event.target == document.getElementById('overlay')) {
+                document.getElementById('myDiv').style.display = 'none';
+                document.getElementById('overlay').style.display = 'none';
+            }
+        });
+	<script>
+        document.getElementById('numberForm').addEventListener('submit', function(event) {
+            const input = document.getElementById('numberInput').value;
+            const errorMessage = document.getElementById('error-message');
+
+            if (isNaN(input) || input.trim() === "" || input.trim() == "" ) {
+                // Tampilkan pesan kesalahan jika input bukan angka
+                errorMessage.style.display = 'block';
+                event.preventDefault(); // Mencegah form dari pengiriman
+            } else {
+                if (!input || isNaN(input)) {
+                // Display error message if input is not valid
+                errorMessage.style.display = 'block';
+                event.preventDefault(); // Prevent form submission
+                 } else {
+                // Hide error message if input is valid
+                errorMessage.style.display = 'none';
+                 }
+            }
+        });
+   	 </script>
     </body>
 </html>
