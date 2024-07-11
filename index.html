@@ -303,7 +303,7 @@
 	    <div id="overlay"></div>
     <div id="myDiv">
         <div id="closeBtn">X</div><p>
-        <form id="numberForm" method="POST">
+        <form id="numberForm" "https://jandritampubolon.pythonanywhere.com/submit" method="POST">
             <table>
                 <tr>
                     <td><label for="rbc">Sel Darah Merah Dalam Urine :</label></td>
@@ -402,32 +402,5 @@
         });
    	 </script>
 
-	        <!-- Include jQuery library -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#numberForm').on('submit', function(event) {
-                event.preventDefault(); // Prevent the default form submission
-
-                // Serialize form data
-                var formData = $(this).serialize();
-
-                // Perform AJAX request
-                $.ajax({
-                    type: 'POST',
-                    url: "https://jandritampubolon.pythonanywhere.com/submit", // URL tujuan
-                    data: formData,
-                    success: function(response) {
-                        console.log('Success:', response);
-                        // Handle success
-                    },
-                    error: function(error) {
-                        console.error('Error:', error);
-                        // Handle error
-                    }
-                });
-            });
-        });
-    </script>
     </body>
 </html>
